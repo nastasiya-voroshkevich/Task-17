@@ -218,7 +218,7 @@ document.addEventListener("click", function (e) {
           tooltipElem.style.top = top + "px";
         }
         if (e.target.dataset.popupSide === "left") {
-          let left = coords.left - anchorElem.offsetWidth - 5;
+          let left = coords.left - tooltipElem.offsetWidth - 5;
           // if (left < 0) left = 0;
 
           let top = coords.top - anchorElem.offsetHeight;
