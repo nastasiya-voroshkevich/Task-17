@@ -1,0 +1,40 @@
+.wrapper {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-top: 50px;
+  margin-bottom: 50px;
+  
+}
+
+.popup {
+ position: fixed;
+  z-index: 100;
+  padding: 20px 30px;
+  border: 1px solid #b3c9ce;
+  border-radius: 4px;
+  text-align: center;
+  font: italic 14px/1.3 sans-serif;
+  color: #333;
+  background: #fff;
+ 
+  overflow: hidden;
+}
+
+/*.popup::after {
+  content: "";
+  position: absolute;
+ top: 100%;
+  left: 50%;
+  margin-left: -10px;
+  border-width: 10px;
+  border-style: solid;
+  border-color: #b3c9ce transparent transparent transparent;
+
+}*/
+input {
+  
+  margin: 50px;
+  width: 200px;
+  border: 1px solid brown;
+}

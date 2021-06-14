@@ -1,0 +1,174 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="./css/style.css" />
+    <title>Document</title>
+  </head>
+  <style>
+    table {
+      table-layout: fixed;
+      width: 40%;
+      border-collapse: collapse;
+    }
+
+    thead th:nth-child(1) {
+      width: 30%;
+    }
+
+    thead th:nth-child(2) {
+      width: 20%;
+    }
+
+    thead th:nth-child(3) {
+      width: 15%;
+    }
+
+    thead th:nth-child(4) {
+      width: 35%;
+    }
+
+    th,
+    td {
+      padding: 50px;
+      border: 1px solid black;
+    }
+    .td-color {
+      background: black;
+    }
+  </style>
+  <body>
+    <!--<table id="table"></table>
+    <button id="button">Поменять цвета</button> -->
+    <div class="wrapper">
+      <input
+        type="email"
+        data-popup="Этот адрес будет использоваться...."
+        data-popup-side="top"
+        data-popup-handler="click"
+      /> 
+   
+      <input
+        type="email"
+        data-popup="Этот адрес будет использоваться...."
+        data-popup-side="left"
+        data-popup-handler="hover"
+      /> 
+ 
+    
+      <input
+        type="email"
+        data-popup="Этот адрес будет использоваться...."
+        data-popup-side="bottom"
+        data-popup-handler="hover"
+      />
+ 
+  
+      <input
+        type="email"
+        data-popup="Этот адрес будет использоваться...."
+        data-popup-side="right"
+        data-popup-handler="click"
+      />
+    </div>
+    <script>
+      /** task 1
+       * Максимально сократите следующий код
+       */
+
+      let func1 = (num1, num2) => num1 * num2;
+
+      let result = [1, 2, 3, 4, 5].filter((elem) =>
+        elem % 2 == 0 ? true : false
+      );
+
+      let func2 = () => alert("!!!");
+      console.log(result);
+      /** task 3
+       * Напиши функцию pluck, которая берет массив объектов и возвращает массив значений определенного поля
+       */
+
+      const pluck = (array, field) => {
+        let arr = [];
+        for (let i = 0; i < array.length; i++) {
+          for (let j in array[i]) {
+            if (j === field) {
+              arr.push(array[i][j]);
+            }
+          }
+        }
+        return arr;
+      };
+
+      const characters = [
+        { name: "barney", age: 36 },
+        { name: "fred", age: 40 },
+      ];
+
+      console.log(pluck(characters, "name")); // ['barney', 'fred']
+
+      /** task 4
+       * Сделать поле из белых клеточек. При клике на клеточку она должна менять цвет на черный.
+       * Под таблицей должна быть кнопка «поменять цвета». При ее нажатии все цвета клеточек меняются на противоположные.
+       * Делать поле удобно с помощью элемента <table>. Саму таблицу надо не вставить в исходный код, а сгенерировать и добавить в DOM страницы яваскриптом.
+       */
+
+   /*   let table = document.querySelector("#table");
+
+      for (let i = 0; i < 3; i++) {
+        let tr = document.createElement("tr");
+
+        for (let i = 0; i < 3; i++) {
+          let td = document.createElement("td");
+          tr.appendChild(td);
+        }
+
+        table.appendChild(tr);
+      }
+      let tds = document.querySelectorAll("td");
+      let button = document.querySelector("#button");
+      for (let i = 0; i < tds.length; i++) {
+        tds[i].addEventListener("click", (e) => {
+          tds[i].classList.add("td-color");
+        });
+      }
+      button.addEventListener("click", (e) => {
+        for (let i = 0; i < tds.length; i++) {
+          tds[i].classList.toggle("td-color");
+          /*   if (tds[i].classList.contains("td-color")) {
+        tds[i].classList.remove("td-color");
+      } else {
+        tds[i].classList.add("td-color");
+      }
+        }
+      }); */
+
+      /** task 2
+       * Нужно написать функцию, которая проверяет, являются ли две строки анаграммами, причем регистр букв не имеет значения.
+       * Дополнительно - Учитываются лишь символы; пробелы или знаки препинания в расчет не берутся.
+       */
+
+      const anagram = (firstString, secondString) => {
+        let str = firstString;
+        let str2 = secondString;
+        let ls = str.toUpperCase().split("");
+        let ls2 = str2.toUpperCase().split("");
+
+        for (let i = 0; i < ls.length; i++) {
+          if (ls2.includes(ls[i]) == true) {
+            return true;
+          } else {
+            return false;
+          }
+        }
+      };
+
+      console.log(anagram("finder", "Friend")); // true
+      console.log(anagram("Hello", "bye")); // false
+      console.log(anagram("find=er", "Fri-en d")); // true - дополнительно
+    </script>
+    <script src="./js/main.js"></script>
+  </body>
+</html>
